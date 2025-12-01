@@ -1,5 +1,6 @@
 import { defineStore} from 'pinia';
 import { ref } from 'vue';
+import { useCount } from '../composalbe/useCount';
 
 
 /* export const useCounterStore = defineStore('counter', {
@@ -14,7 +15,7 @@ import { ref } from 'vue';
   }
 }) */
  export const useCounterStore = defineStore('counter', () =>{
-  const count = ref(1);
+  const count = useCount();
   const increment = () => count.value++;
   const doubleCount = () => count.value *= 2;
   return { count, increment, doubleCount };
